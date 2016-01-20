@@ -1,0 +1,27 @@
+<head>
+<title>List Pages</title>
+<!-- Latest compiled and minified CSS -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet'  type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<%= stylesheet_link_tag "page_index" %>
+</head>
+<div class="container">
+<h1 align="center" bgcolor="#C0FFC0">Page Posts</h1>
+<table class="table table-bordered">
+  <tr bgcolor="#FFC0C0">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Permissions</th>
+  </tr>
+
+
+  <% @data.each do |page| %>
+    <tr>
+      <td><%= link_to page["id"], controller: "posts", action: "index", page_id: page["id"], access_token: page["access_token"] %></td>
+      <td><%= page["name"] %></td>
+      <td><%= page["category"] %></td>
+      <td><%= page["perms"].join(", ") %></td>
+  <% end %>
+</table>
+</div>

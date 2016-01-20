@@ -1,0 +1,61 @@
+body {
+    background-color: #FFF0FF;
+}
+h1 {
+    font-family: 'Droid Serif', sans-serif;
+}
+div{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+th:nth-child(1){
+    width:23%;
+}
+th:nth-child(4){
+    width:8%;
+}
+th:nth-child(5){
+    width:9%;
+}
+th:nth-child(6){
+    width:9%;
+}
+th:nth-child(7){
+    width:6%;
+}
+/*div {background-color: #FFF0FF;}*/
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+/*h1{color: #FFFFFF;}*/
+body {text-align: center}
+/*td {color: #FFFFFF;}*/
+#nextButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+}
+#prevButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+}
+#backButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+}
+#createButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+}

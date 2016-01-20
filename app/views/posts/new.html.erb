@@ -1,0 +1,35 @@
+<head>
+<title>Create Facebook Page Posts</title>
+<!-- Latest compiled and minified CSS -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet'  type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<%= stylesheet_link_tag "new" %>
+</head>
+<h1>New Facebook Page Post</h1>
+<%= form_for :posts, url: posts_path do |f| %>
+ 
+  <p>
+    <%= f.label :published? %> Published <%= f.radio_button :publish, "1"%> Unpublished <%= f.radio_button :publish, "0"%>
+  </p>
+ 
+  <p class="form-group">
+    <label>Message:</label> </br> <%= f.text_area :message, size: "73x5" %>
+  </p>
+
+  <p class="form-group"> <label>Link:</label> </br> <%= f.text_field :link, size: 75 %> </p>
+ 
+  <p>
+    <%= f.label :schedule? %><br>
+    <%= f.check_box :schedule %>
+  </p>
+ 
+  <p>
+    <%= f.label :scheduled_time %><br>
+    <%= f.datetime_select :scheduled_time%>
+    <%= f.time_zone_select :time_zone, nil, default: "Pacific Time (US & Canada)"%>
+  </p>
+</br>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,27 @@
+<head>
+<title>Post Insights</title>
+<!-- Latest compiled and minified CSS -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet'  type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<%= stylesheet_link_tag "show" %>
+</head>
+<div class="container">
+  <h1 align="center" bgcolor="#C0FFC0">Post Insights</h1>
+  <table class="table table-bordered">
+    <tr bgcolor="#FFC0C0">
+      <th>Metric Name</th>
+      <th>Description</th>
+      <th>Values</th>
+    </tr>
+
+
+    <% @data.each do |metric| %>
+      <tr>
+        <td><%= metric["title"] %></td>
+        <td><%= metric["description"] %></td>
+        <td><%= metric["values"] %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to('<button id="backButton" type="button" align="right">Post List</button>'.html_safe, controller: "posts", action: "index") %>
+</div>

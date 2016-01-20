@@ -1,0 +1,33 @@
+body {
+    background-color: #FFF0FF;
+}
+h1 {
+    font-family: 'Droid Serif', sans-serif;
+}
+/*div {background-color: #FFF0FF;}*/
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*h1{color: #FFFFFF;}*/
+body {text-align: center}
+/*td {color: #FFFFFF;}*/
+#nextButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: right;
+}
+#prevButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: right;
+}
+#backButton
+button {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: right;
+}

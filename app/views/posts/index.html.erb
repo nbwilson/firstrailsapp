@@ -1,0 +1,40 @@
+<head>
+<title>List Posts</title>
+<!-- Latest compiled and minified CSS -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet'  type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<%= stylesheet_link_tag "index" %>
+</head>
+<div class="container">
+<h1 align="center" bgcolor="#C0FFC0">Page Posts</h1>
+<table class="table table-bordered">
+  <tr bgcolor="#FFC0C0">
+    <th>ID</th>
+    <th>Link</th>
+    <th>Message</th>
+    <th>Time</th>
+    <th>Published?</th>
+    <th>Impressions</th>
+    <th>Reach</th>
+  </tr>
+
+
+  <% @data.each do |post| %>
+    <tr>
+      <td><%= link_to post["id"], controller: "posts", action: "show", id: post["id"] %></td>
+      <td><%= link_to post["link"], post['link'] unless post['link'].blank? %></td>
+      <td><%= post["message"] %></td>
+      <td><%= Time.at(post["scheduled_publish_time"]) unless post["scheduled_publish_time"].blank? %></td>
+      <td><%= post["is_published"] ? "Published" : "Unpublished" %></td>
+      <td><%= post["insights"]["data"].detect{|a| a["name"] == 'post_impressions'}["values"].first["value"] if post["insights"] && post["insights"]["data"] %></td>
+      <td><%= post["insights"]["data"].detect{|a| a["name"] == "post_impressions_unique"}["values"].first["value"] if post["insights"] && post["insights"]["data"] %></td>
+    </tr>
+  <% end %>
+</table>
+<p/>
+<%= link_to('<button id="backButton" type="button" align="center">First Page</button>'.html_safe, controller: "posts", action: "index") if @prev_page.nil? && @next_page.nil? %>
+<%= link_to('<button id="prevButton" type="button" align="left">Prev Page</button>'.html_safe, controller: "posts", action: "index", id: @prev_page, from: params['id'], to: 'prev') unless @prev_page.nil?%>
+<%= link_to('<button id="nextButton" type="button" align="right">Next Page</button>'.html_safe, controller: "posts", action: "index", id: @next_page, from: params['id'], to: 'next') unless @next_page.nil? %>
+<%= link_to('<button id="backButton" type="button" align="center">First Page</button>'.html_safe, controller: "posts", action: "index") if @prev_page.nil? && @next_page.nil? %>
+<%= link_to('<button id="createButton" type="button" align="right">Create Post</button>'.html_safe, controller: "posts", action: "new") %>
+</div>
